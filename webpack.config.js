@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const NodemonPlugin = require('nodemon-webpack-plugin');
 
 module.exports = {
   entry: { main: './src/index.js' },
@@ -19,6 +18,7 @@ module.exports = {
 
     open: true // сайт будет открываться сам при запуске npm run dev
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [ // rules — это массив правил
       // добавим в него объект правил для бабеля
@@ -55,6 +55,5 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-    new NodemonPlugin(),
   ]
 };
